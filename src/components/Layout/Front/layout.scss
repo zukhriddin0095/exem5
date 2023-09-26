@@ -1,3 +1,15 @@
+.headerScrol {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: #23253653;
+  left: 0;
+  height: 70px;
+  z-index: 10;
+  transition: all 0.2s;
+  backdrop-filter: blur(5px);
+}
+
 .header {
   position: fixed;
   width: 100%;
@@ -6,6 +18,7 @@
   background: var(--Black, #232536);
   height: 80px;
   z-index: 10;
+  transition: all 0.3s;
   &__navbar {
     padding-top: 25px;
     display: flex;
@@ -15,6 +28,9 @@
       display: flex;
       align-items: center;
       gap: 24px;
+      @media (max-width: 950px) {
+        display: none;
+      }
       .active {
         position: relative;
         color: #2ca314;
@@ -27,7 +43,7 @@
           left: 0;
           bottom: 0;
           background: #2ca314;
-          border-radius: 10px;  
+          border-radius: 10px;
         }
       }
       a {
@@ -40,6 +56,7 @@
       }
       &__login {
         margin-left: 60px;
+
         a {
           padding: 16px 48px;
           background: var(--Light, #fff);
@@ -51,12 +68,67 @@
           font-weight: 700;
           line-height: 24px;
           transition: 0.3s;
+          @media (max-width: 950px) {
+            padding: 8px 30px;
+          }
           &:hover {
             background: #2ca314;
             color: #fff;
           }
         }
       }
+    }
+    &__toggle__btn {
+      display: none;
+      button {
+        border: none;
+        font-size: 30px;
+        background: transparent;
+        cursor: pointer;
+        i {
+          color: #fff;
+        }
+      }
+      @media (max-width: 950px) {
+        display: flex;
+      }
+    }
+  }
+}
+.header__navbar__toggle {
+  padding: 150px;
+  width: 50%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: -1500px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background: #e49898;
+  transition: all 0.3s;
+  .close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    border: none;
+    font-size: 30px;
+    background: transparent;
+  }
+  
+  a {
+    color: var(--Black, #42636e);
+    text-align: center;
+    font-family: Sen;
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 64px;
+    letter-spacing: -2px;
+    transition: 0.3s;
+    &:hover {
+      border: 2px solid #42636e;
+      border-radius: 20%;
     }
   }
 }
@@ -83,18 +155,51 @@
       gap: 27px;
       a {
         font-size: 25px;
-        transition: .3s;
+        transition: 0.3s;
         &:hover {
-          transform: scale(1.5) rotate(360deg) ;
+          transform: scale(1.5) rotate(360deg);
           color: #2ca314;
         }
         i {
           color: #ffffff70;
           &:hover {
-          color: #2ca314;
-        }
+            color: #2ca314;
+          }
         }
       }
     }
   }
 }
+.header__navbar__open {
+    padding: 150px;
+    width: 50%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background: #e4989861;
+    transition: all 0.3s;
+    backdrop-filter: blur(10px);
+    .close {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      border: none;
+      font-size: 30px;
+      background: transparent;
+    }
+    a {
+    color: var(--Black, #42636e);
+    text-align: center;
+    font-family: Sen;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 64px;
+    letter-spacing: -2px;
+    transition: 0.3s;
+  }
+  }

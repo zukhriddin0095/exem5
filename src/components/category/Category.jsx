@@ -1,12 +1,11 @@
 import { Fragment, useEffect, useState } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import request from "../../server/data";
 
-
-
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import "./category1.scss";
 
 const Category1 = () => {
-    const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -19,19 +18,26 @@ const Category1 = () => {
     setData(data);
   }
 
-
   return (
-    <Fragment> 
-    <section style={{marginTop: "85px"}} className="container">
-      <div className="category title">
+    <Fragment>
+      <section className="category">
+        <div className="container">
+          <div className="category__title">
 
-      </div>
-      <div style={{ paddingTop: "50px", marginBottom: "50px"}} className="category__Search">
-        <input style={{width: "100%", padding: "24px"}} type="text" placeholder="Search . . ." />
-      </div>
-       <div className="cards">
-      {data.map((el) => {
-            return (
+          </div>
+          <div
+            style={{ paddingTop: "50px", marginBottom: "50px" }}
+            className="category__Search"
+          >
+            <input
+              style={{ width: "100%", padding: "24px" }}
+              type="text"
+              placeholder="Search . . ."
+            />
+          </div>
+          <div className="cards">
+            {data.map((el) => {
+              return (
                 <div key={el._id} className="card">
                   <LazyLoadImage
                     style={{ width: "48px", height: "48px" }}
@@ -42,18 +48,13 @@ const Category1 = () => {
                   <h5>{el.name}</h5>
                   <p>{el.description}</p>
                 </div>
-            );
-          })}
-    </div>
-    </section>
-
+              );
+            })}
+          </div>
+        </div>
+      </section>
     </Fragment>
-    
+  );
+};
 
-
-
-   
-  )
-}
-
-export default Category1
+export default Category1;
