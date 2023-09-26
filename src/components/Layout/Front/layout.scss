@@ -107,6 +107,7 @@
   gap: 30px;
   background: #e49898;
   transition: all 0.3s;
+  z-index: 200;
   .close {
     position: absolute;
     top: 25px;
@@ -120,7 +121,7 @@
     color: var(--Black, #42636e);
     text-align: center;
     font-family: Sen;
-    font-size: 56px;
+    font-size: 26px;
     font-style: normal;
     font-weight: 700;
     line-height: 64px;
@@ -171,31 +172,32 @@
   }
 }
 .header__navbar__open {
-    padding: 150px;
+    padding: 50px;
     width: 50%;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 10px;
     background: #e4989861;
     transition: all 0.3s;
     backdrop-filter: blur(10px);
+    z-index: 20;
     .close {
       position: absolute;
-      top: 25px;
-      right: 25px;
+      top: 10px;
+      right: 10px;
       border: none;
-      font-size: 30px;
+      font-size: 20px;
       background: transparent;
     }
     a {
-    color: var(--Black, #42636e);
+    color: var(--Black, #000000);
     text-align: center;
     font-family: Sen;
-    font-size: 36px;
+    font-size: 26px;
     font-style: normal;
     font-weight: 700;
     line-height: 64px;
