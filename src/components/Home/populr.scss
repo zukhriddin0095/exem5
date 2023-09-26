@@ -1,0 +1,55 @@
+.border {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #6d6e7652;
+}
+
+.popular-title {
+  margin-top: 94px;
+  h1 {
+    color: #000;
+    text-align: start;
+    font-family: Sen;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px; /* 133.333% */
+    letter-spacing: -2px;
+  }
+}
+.cards__card {
+  margin-bottom: 66px;
+  height: 406px;
+  border: 1px solid #8888886a;
+  border-radius: 20px;
+  &__title {
+    padding: 10px;
+    h5 {
+      color: var(--Dark-Grey, #4c4c4c);
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px;
+      span {
+        color: var(--Purple, #592ea9);
+      }
+    }
+    h3 {
+      color: var(--Black, #232536);
+      font-family: Sen;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 40px;
+      letter-spacing: -1px;
+    }
+    p {
+      color: var(--Black, #232536);
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 28px;
+    }
+  }
+}

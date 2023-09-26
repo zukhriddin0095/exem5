@@ -1,0 +1,100 @@
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: var(--Black, #232536);
+  height: 80px;
+  z-index: 10;
+  &__navbar {
+    padding-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__link {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      .active {
+        position: relative;
+        color: #2ca314;
+        transition: 0.3s;
+        &::after {
+          content: "";
+          width: 100%;
+          height: 1px;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          background: #2ca314;
+          border-radius: 10px;  
+        }
+      }
+      a {
+        color: var(--Light, #fff);
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px; /* 175% */
+      }
+      &__login {
+        margin-left: 60px;
+        a {
+          padding: 16px 48px;
+          background: var(--Light, #fff);
+          border-radius: 5px;
+          color: var(--Black, #232536);
+          font-family: Sen;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 24px;
+          transition: 0.3s;
+          &:hover {
+            background: #2ca314;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  background: var(--Black, #232536);
+  &__wrapper {
+    padding: 54px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__title {
+      h5 {
+        color: var(--Light, #ffffff70);
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
+      }
+    }
+    &__social {
+      display: flex;
+      gap: 27px;
+      a {
+        font-size: 25px;
+        transition: .3s;
+        &:hover {
+          transform: scale(1.5) rotate(360deg) ;
+          color: #2ca314;
+        }
+        i {
+          color: #ffffff70;
+          &:hover {
+          color: #2ca314;
+        }
+        }
+      }
+    }
+  }
+}

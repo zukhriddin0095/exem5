@@ -1,0 +1,9 @@
+export { default as HomePage } from "./HomePage";
+export { default as AboutPage } from "./AboutPage";
+export { default as AccountPage } from "./AccountPage";
+export { default as BlogPage } from "./BlogPage";
+export { default as BlogsPage } from "./BlogsPage";
+export { default as CategoryPage } from "./CategoryPage";
+export { default as LoginPage } from "./LoginPage";
+export { default as MyBlogs } from "./MyBlogs";
+export { default as RegiterPage } from "./RegiterPage";
