@@ -51,7 +51,6 @@ const Header = () => {
             <div className="header__navbar__link">
               <NavLink to="/">Home</NavLink>
               <NavLink to="/allposts">All Posts</NavLink>
-              <NavLink to="/category">Category</NavLink>
               <NavLink to="/about">About</NavLink>
               <NavLink to="/blogs">Blogs</NavLink>
               <NavLink to="/register">Register</NavLink>
@@ -79,7 +78,6 @@ const Header = () => {
         </button>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/allposts">All Posts</NavLink>
-        <NavLink to="/category">Category</NavLink>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/blogs">Blogs</NavLink>
         <NavLink to="/register">Register</NavLink>

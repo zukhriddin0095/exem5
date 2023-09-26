@@ -3,6 +3,7 @@ import ReactPaginate from "react-paginate";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import request from "../../server/data";
 
+import "./allposts.scss";
 const Allposts = () => {
   const [data, setData] = useState([]);
 
@@ -25,10 +26,7 @@ const Allposts = () => {
   return (
     <Fragment>
       <div className="container">
-        <div
-          style={{ marginTop: "85px", marginBottom: "80px" }}
-          className="allposts"
-        >
+        <div className="allposts">
           <div className="allposts__search">
             <input type="text" placeholder="Search . . ." />
           </div>
@@ -37,20 +35,22 @@ const Allposts = () => {
             {data.map((el, i) => {
               return (
                 <div key={i} className="allposts__cards__card">
-                  <LazyLoadImage
-                    src={`https://blog-backend-production-a0a8.up.railway.app/upload${el.photo?._id}.jpg`}
-                    alt="asdasd"
+                  <div className="allposts__cards__card__img">
+                    <LazyLoadImage
+                    src={`https://blog-backend-production-a0a8.up.railway.app/upload/${el.photo._id}.jpg`}
+                    alt={el.title}
                   />
+                  </div>
+                  
                   ;
                   <div className="allposts__cards__card__title">
-                    <h5>{el.title}</h5>
-                    <h3>{el.description}</h3>
+                    <h5>{el.category.name}</h5>
+                    <h3>{el.category.description}</h3>
                     <p>{el.category.description}</p>
                   </div>
                   ;
                 </div>
               );
-              
             })}
           </div>
           <ReactPaginate

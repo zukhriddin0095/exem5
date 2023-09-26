@@ -28,7 +28,7 @@ function App() {
         <Route path="/" element={<FrontLayout />}>
           <Route index element={<HomePage />} />
           <Route path="allposts" element={<AllPostsPage />} />
-          <Route path="category" element={<CategoryPage />} />
+          <Route path="category/:idCateg" element={<CategoryPage />} />
           <Route path="blogs" element={<BlogsPage />} />
           <Route path="blogs/:blogId" element={<BlogPage />} />
           <Route path="about" element={<AboutPage />} />

@@ -4,6 +4,8 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Swiper, SwiperSlide } from "swiper/react";
 import request from "../../server/data";
 
+import "swiper/css/mousewheel";
+import "swiper/css/effect-cards";
 import "swiper/css";
 import "./populr.scss";
 import Loading from "../LOADING/Loading";
@@ -11,18 +13,16 @@ const PopularBlogs = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
-
   useEffect(() => {
     fetchData();
   }, []);
 
   async function fetchData() {
-    setLoading(true)
+    setLoading(true);
     const { data } = await request.get("/post/lastones");
     setData(data);
-    setLoading(false)
+    setLoading(false);
   }
-
 
   return (
     <Fragment>
@@ -31,11 +31,28 @@ const PopularBlogs = () => {
           <h1>Popular blogs</h1>
         </div>
         <Swiper
-          style={{ marginTop: "64px" }}
           spaceBetween={50}
           slidesPerView={3}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
+          breakpoints={{
+            350: {
+              width: 370,
+              slidesPerView: 1,
+            },
+            576: {
+              width: 576,
+              slidesPerView: 2,
+            },
+            950: {
+              width: 576,
+              slidesPerView: 3,
+            },
+            1280: {
+              width: 1300,
+              slidesPerView: 3,
+            },
+          }}
         >
           {data.map((el, i) => {
             return (

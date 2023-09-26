@@ -27,7 +27,7 @@ const Category = () => {
   }
 
   const navigate1 = (id) => {
-    navigate(`/blogs/${id}`);
+    navigate(`/category/${id}`);
   };
   console.log(data);
   return (
@@ -44,6 +44,24 @@ const Category = () => {
           slidesPerView={3}
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log("slide change")}
+          breakpoints={{
+            350: {
+              width: 370,
+              slidesPerView: 1,
+            },
+            576: {
+              width: 576,
+              slidesPerView: 2,
+            },
+            950: {
+              width: 576,
+              slidesPerView: 3,
+            },
+            1280: {
+              width: 1300,
+              slidesPerView: 3,
+            },
+          }}
         >
           {data.map((el) => {
             return (
