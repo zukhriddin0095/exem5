@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Fragment } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useNavigate } from "react-router-dom";
 import request from "../../server/data";
 
 import "swiper/css/mousewheel";
@@ -9,19 +10,30 @@ import "swiper/css/effect-cards";
 import "swiper/css";
 import "./populr.scss";
 import Loading from "../LOADING/Loading";
+import { toast } from "react-toastify";
 const PopularBlogs = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchData();
   }, []);
 
   async function fetchData() {
-    setLoading(true);
-    const { data } = await request.get("/post/lastones");
-    setData(data);
-    setLoading(false);
+    try {
+      setLoading(true);
+      const { data } = await request.get("/post/lastones");
+      setData(data);
+    } catch (err) {
+      toast.error("serverda hatolik");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  function blogs(id) {
+    navigate(`/blogs/${id}`);
   }
 
   return (
@@ -60,7 +72,7 @@ const PopularBlogs = () => {
                 {loading ? (
                   <Loading />
                 ) : (
-                  <div className="cards__card">
+                  <div onClick={() => blogs(el._id)} className="cards__card">
                     <div className="cards__card__img">
                       <LazyLoadImage
                         effect="blur"
@@ -77,11 +89,11 @@ const PopularBlogs = () => {
                       <h5>
                         By{" "}
                         <span>
-                          {el.user.first_name} {el.user.last_name}{" "}
+                          {el.user?.first_name} {el.user?.last_name}{" "}
                         </span>
                         | {el.updatedAt.split("T")[0]}
                       </h5>
-                      <h3>{el.category.description}</h3>
+                      <h3>{el.category?.description}</h3>
                       <p>{el.description}</p>
                     </div>
                   </div>

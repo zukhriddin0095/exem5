@@ -11,8 +11,11 @@ import "swiper/css/scrollbar";
 import "./category.scss";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import Loading from "../LOADING/Loading";
 const Category = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,10 +23,16 @@ const Category = () => {
   }, []);
 
   async function fetchData() {
-    const {
+    try{
+      setLoading(true)
+      const {
       data: { data },
     } = await request.get("/category");
     setData(data);
+    setLoading(false)
+    }catch (err) {
+      toast.error("serverda hatolik")
+    }
   }
 
   const navigate1 = (id) => {
@@ -36,7 +45,7 @@ const Category = () => {
         <div className="category">
           <h1>Choose A Catagory</h1>
         </div>
-
+          
         <Swiper
           // install Swiper modules
           modules={[Navigation]}
@@ -62,8 +71,8 @@ const Category = () => {
               slidesPerView: 3,
             },
           }}
-        >
-          {data.map((el) => {
+        > 
+        {loading ? <Loading /> : data.map((el) => {
             return (
               <SwiperSlide key={el._id}>
                 <div onClick={() => navigate1(el._id)} className="card">
@@ -79,6 +88,7 @@ const Category = () => {
               </SwiperSlide>
             );
           })}
+          
         </Swiper>
       </div>
     </Fragment>

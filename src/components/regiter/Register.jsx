@@ -1,8 +1,6 @@
 import { useState } from "react";
 import "./register.scss";
 import request from "../../server/data";
-import Cookies from "js-cookie";
-import { RegiterTOKEN } from "../../constants";
 import { toast } from "react-toastify";
 import Loading from "../LOADING/Loading";
 const Register = () => {
@@ -22,10 +20,7 @@ const Register = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      let {
-        data: { token },
-      } = await request.post("/auth/register", handleValue);
-      Cookies.set(RegiterTOKEN, token);
+       await request.post("/auth/register", handleValue);
       setLoading(false);
     } catch (err) {
       toast.error("hato bo'ldi");
